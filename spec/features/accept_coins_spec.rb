@@ -6,9 +6,9 @@ require 'capybara/rspec'
 
 
 feature 'I want a vending machine which accepts coins' do
-  scenario 'It accepts nickels' do
+  xscenario 'It accepts nickels' do
     vend = VendingMachine.new
     vend.insert('nickel')
-    expect(vend.display).to equal(5)
+    expect(vend.display).to eq(5)
   end
 end
