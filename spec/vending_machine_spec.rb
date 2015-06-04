@@ -4,6 +4,11 @@ describe VendingMachine do
   it 'shows 5 cents' do
     vend = VendingMachine.new
     vend.insert('nickel')
-    expect(vend.display()).to eq(5)
+    expect(vend.display_tally).to eq(5)
+  end
+  it 'shows 10 cents' do
+    vend = VendingMachine.new
+    vend.insert('dime')
+    expect(vend.display_tally).to eq(10)
   end
 end
