@@ -1,4 +1,5 @@
 require 'capybara/rspec'
+require 'vending_machine'
 
 # As a vendor
 # I want a vending machine that accepts coins

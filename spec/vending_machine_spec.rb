@@ -20,4 +20,11 @@ describe VendingMachine do
     vend = VendingMachine.new
     expect { vend.display_tally }.to raise_error 'Insert Coin'
   end
+  it 'adds separate entries for a total' do
+    vend = VendingMachine.new
+    vend.insert('nickel')
+    vend.insert('dime')
+    vend.insert('quarter')
+    expect(vend.display_tally).to eq(40)
+  end
 end
