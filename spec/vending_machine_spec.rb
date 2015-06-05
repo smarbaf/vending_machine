@@ -11,4 +11,9 @@ describe VendingMachine do
     vend.insert('dime')
     expect(vend.display_tally).to eq(10)
   end
+  it 'shows 25 cents' do
+    vend = VendingMachine.new
+    vend.insert('quarter')
+    expect(vend.display_tally).to eq(25)
+  end
 end

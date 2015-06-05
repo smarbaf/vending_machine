@@ -7,8 +7,10 @@ class VendingMachine
   def insert(coin)
     if coin == 'nickel'
       @tally = 5
-    else
+    elsif coin == 'dime'
       @tally = 10
+    else
+      @tally = 25
     end
   end
 
