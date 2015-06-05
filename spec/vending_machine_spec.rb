@@ -16,4 +16,8 @@ describe VendingMachine do
     vend.insert('quarter')
     expect(vend.display_tally).to eq(25)
   end
+  it 'raises an error when no coin is inserted' do
+    vend = VendingMachine.new
+    expect { vend.display_tally }.to raise_error 'Insert Coin'
+  end
 end

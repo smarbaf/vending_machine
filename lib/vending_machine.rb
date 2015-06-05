@@ -1,7 +1,8 @@
 class VendingMachine
 
   def initialize
-    @tally = 0
+    # @tally = 0
+
   end
 
   def insert(coin)
@@ -9,12 +10,15 @@ class VendingMachine
       @tally = 5
     elsif coin == 'dime'
       @tally = 10
-    else
+    elsif coin == 'quarter'
       @tally = 25
+    else
+      fail 'Insert Coin'
     end
   end
 
   def display_tally
+    fail 'Insert Coin' unless @tally
     @tally
   end
 
