@@ -6,7 +6,7 @@ require 'vending_machine'
 # So that I can collect money from the customer
 
 
-feature 'I want a vending machine which accepts coins' do
+feature 'A vending machine accepts coins' do
   scenario 'It accepts a range of coins' do
     vend = VendingMachine.new
     vend.insert('nickel')
@@ -18,5 +18,10 @@ feature 'I want a vending machine which accepts coins' do
   scenario 'It reports when no coin is inserted' do
     vend = VendingMachine.new
     expect { vend.display_tally }.to raise_error 'Insert Coin'
+  end
+
+  scenario 'It rejects invalid coins' do
+    vend = VendingMachine.new
+    expect { vend.insert('penny') }.to raise_error 'Invalid Coin'
   end
 end
