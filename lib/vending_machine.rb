@@ -35,15 +35,25 @@ class VendingMachine
     end
   end
 
-  def select(cola)
+  def select(product)
 
   end
 
-  def product
+  def product_selection
     if @tally >= 100
-    return 'cola'
-  else
-    return 'PRICE $1.00'
-  end
+      return 'cola THANK YOU'
+    else
+      return 'PRICE $1.00'
+    end
+    if @tally >= 65
+      return 'candy THANK YOU'
+    else
+      return 'PRICE $0.65'
+    end
+    if @tally >= 50
+      return 'chips THANK YOU'
+    else
+      return 'PRICE $0.50'
+    end
   end
 end
