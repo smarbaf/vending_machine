@@ -34,4 +34,16 @@ class VendingMachine
     else
     end
   end
+
+  def select(cola)
+
+  end
+
+  def product
+    if @tally = 100
+    return 'cola'
+  else
+    return 'PRICE $1.00'
+  end
+  end
 end

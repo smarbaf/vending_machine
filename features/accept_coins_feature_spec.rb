@@ -23,7 +23,7 @@ feature 'A vending machine accepts coins' do
     expect(vend.display_tally).to eq('Insert Coin')
   end
 
-  xscenario 'It places invalid coins into coin return' do
+  scenario 'It places invalid coins into coin return' do
     vend = VendingMachine.new
     vend.insert('penny')
     expect(vend.coin_return('penny')).to eq('penny')

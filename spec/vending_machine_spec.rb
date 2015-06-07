@@ -38,4 +38,13 @@ describe VendingMachine do
     vend.coin_return('nickel')
     expect(vend.display_tally).to eq(5)
   end
+  it 'offers a range of products' do
+    vend = VendingMachine.new
+    vend.insert('quarter')
+    vend.insert('quarter')
+    vend.insert('quarter')
+    vend.insert('quarter')
+    vend.select('cola')
+    expect(vend.product).to eq('cola')
+  end
 end
