@@ -13,15 +13,19 @@ feature 'A vending machine accepts coins' do
     vend.insert('dime')
     vend.insert('quarter')
     expect(vend.display_tally).to eq(40)
+    vend.insert('dime')
+    vend.insert('quarter')
+    expect(vend.display_tally).to eq(75)
   end
 
-  scenario 'It reports when no coin is inserted' do
+  scenario 'It knows when no coin is inserted' do
     vend = VendingMachine.new
-    expect { vend.display_tally }.to raise_error 'Insert Coin'
+    expect(vend.display_tally).to eq('Insert Coin')
   end
 
-  scenario 'It rejects invalid coins' do
+  xscenario 'It places invalid coins into coin return' do
     vend = VendingMachine.new
-    expect { vend.insert('penny') }.to raise_error 'Invalid Coin'
+    vend.insert('penny')
+    expect(vend.coin_return('penny')).to eq('penny')
   end
 end

@@ -2,6 +2,7 @@ class VendingMachine
 
   def initialize
     @tally = 0
+    # coin_return = []
   end
 
   def insert(coin)
@@ -11,13 +12,26 @@ class VendingMachine
       @tally += 10
     elsif coin == 'quarter'
       @tally += 25
-    else coin = 'penny'
-      fail 'Invalid Coin'
+    elsif coin == 'penny'
+      puts "Invalid Coin"
+      coin_return('penny')
     end
   end
 
   def display_tally
-    fail 'Insert Coin' unless @tally != 0
+    return 'Insert Coin' unless @tally != 0
     @tally
+  end
+
+  def coin_return(coin)
+    return(coin) unless coin != 'penny'
+    if coin == 'nickel'
+      @tally -= 5
+    elsif coin == 'dime'
+      @tally -= 10
+    elsif coin == 'quarter'
+      @tally -= 25
+    else
+    end
   end
 end

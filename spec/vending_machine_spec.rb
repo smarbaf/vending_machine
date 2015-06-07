@@ -16,9 +16,9 @@ describe VendingMachine do
     vend.insert('quarter')
     expect(vend.display_tally).to eq(25)
   end
-  it 'raises an error when no coin is inserted' do
+  it 'understands when no coin is inserted' do
     vend = VendingMachine.new
-    expect { vend.display_tally }.to raise_error 'Insert Coin'
+    expect(vend.display_tally).to eq('Insert Coin')
   end
   it 'adds separate entries for a total' do
     vend = VendingMachine.new
@@ -27,8 +27,15 @@ describe VendingMachine do
     vend.insert('quarter')
     expect(vend.display_tally).to eq(40)
   end
-  it 'rejects an invalid coin' do
-      vend = VendingMachine.new
-      expect { vend.insert('penny') }.to raise_error 'Invalid Coin'
+  it 'places invalid coins into coin return' do
+    vend = VendingMachine.new
+    vend.insert('coin')
+    expect(vend.coin_return('penny')).to eq('penny')
+  end
+  it 'subtracts coin return amounts from current total' do
+    vend = VendingMachine.new
+    vend.insert('dime')
+    vend.coin_return('nickel')
+    expect(vend.display_tally).to eq(5)
   end
 end
