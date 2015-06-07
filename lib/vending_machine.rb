@@ -40,7 +40,7 @@ class VendingMachine
   end
 
   def product
-    if @tally = 100
+    if @tally >= 100
     return 'cola'
   else
     return 'PRICE $1.00'
